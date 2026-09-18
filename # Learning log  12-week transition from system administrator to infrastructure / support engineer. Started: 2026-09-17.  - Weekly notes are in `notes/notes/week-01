@@ -1,0 +1,12 @@
+Why is key-based auth safer than a password?
+What does PermitRootLogin no protect against?
+What does ufw do with a packet to port 8080 right now, and why?
+What is fail2ban watching, and what does it do when it triggers?
+
+1. Key-based auth is safer than a password because password is a combination and u can just like guess it in some ways but key is a thing that only i do have and only in my computer, so it is surely safer then a combination. In other words u can hack password but not the key, just like IRL in order to open a door u need a key and lockpick(software to get a password) wont work.
+
+2. So just by name i can say that PermitRootLogin protects my server even more then usual cuz in order to hack usually a hacker need to guess a password only cuz defauly name is root so without PermitRootLogin (no) its kinda harder to hack my server and also the hacker will need to guess also a sudo password in order to damage the server so yeah thats how it is
+
+3. The default policy is deny incoming like a packet to 8080 hits the kernel firewall first, matches no allow rule and is dropped silently so the process listening on 8080 never sees it and from outside this looks like a timeout not a refused connection
+
+4. Fail2ban tails the sshd log, counts failed attempts per source ip and when an ip exceeds maxretry within findtime it inserts a firewall like drop rule for that IP for bantime. It's a log-driven counter that manages the firewall so it doesn' care whether auth is by key or password
